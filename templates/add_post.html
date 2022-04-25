@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial;
+        padding: 20px;
+        background: #f1f1f1;
+      }
+
+      .header {
+        padding: 2px;
+        font-size: 40px;
+        text-align: center;
+        background: white;
+      }
+
+      .leftcolumn {
+        float: left;
+        width: 100%;
+      }
+
+      .card {
+        background-color: white;
+        padding: 20px;
+        margin-top: 20px;
+      }
+
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      @media screen and (max-width: 800px) {
+        .leftcolumn,
+        .rightcolumn {
+          width: 100%;
+          padding: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+        <div class="header">
+        <h2>Add to Debasish's Blog</h2>
+        </div>
+        {%if submitted%}
+
+            <h3 style="color:green,align:center">YOUR BLOG IS SUBMITTED SUCCESFULLY!!!</h3>
+        {% else %}
+            
+            <center>
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <input type="submit" value="Submit" >
+                </form>
+            </center>
+        {%endif%}
+
+
+    </body>
+</html>
